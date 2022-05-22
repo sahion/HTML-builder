@@ -5,7 +5,7 @@ const path = require('path');
 async function getFileInfo(file){
   if (file.isFile()){
     const fileInfo = await  fs.promises.stat(path.join(__dirname,'secret-folder',file.name));
-    stdout.write([path.basename(file.name,path.extname(file.name)), path.extname(file.name), fileInfo.size/1000+'kb\n' ].join(' - '));
+    stdout.write([path.basename(file.name, path.extname(file.name)), path.extname(file.name).slice(1), fileInfo.size/1000+'kb\n' ].join(' - '));
   }
 }
 
