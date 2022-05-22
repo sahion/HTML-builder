@@ -13,11 +13,11 @@ fs.readdir(path.join(__dirname,'styles'), {withFileTypes:true} , (err, files) =>
       let data = new fs.ReadStream(path.join(__dirname, 'styles', file.name ), {encoding: 'utf-8'});
       data.on('readable', ()=>{
         
-        styles = data.read();
+        const styles = data.read();
         if (styles)
-        fs.appendFile(path.join(__dirname,'project-dist','bundle.css'), styles, err => {
-          if (err) console.error(err);
-        });
+          fs.appendFile(path.join(__dirname,'project-dist','bundle.css'), styles, err => {
+            if (err) console.error(err);
+          });
       });
       
     }
